@@ -1,4 +1,4 @@
- :four_leaf_clover:  SANDLIM
+# :four_leaf_clover:  SANDLIM
 ###### 산들림 : 여기저기 옮겨 다니면서 한 줄기씩 내리는 소나기.
 <br><br>
 ## :blush: 프로젝트 소개 
