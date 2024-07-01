@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardDAO">
+
+   <!-- NOTICE 등록 (관리자) -->
+   <insert id="insertBoard">
+      INSERT INTO BOARD(B_SORT, B_CAT, B_STATUS, B_TITLE,
+      B_NICK, B_CONTENT, B_FILE, B_DATE)
+      VALUES('notice',#{b_cat},#{b_status}, #{b_title}, #{b_nick},
+      #{b_content}, #{b_file}, now())
+   </insert>
+
+   <!-- NOTICE 수정 (관리자) -->
+   <update id="updateBoard"> UPDATE BOARD SET B_CAT =#{b_cat}, B_STATUS
+      =#{b_status}, B_TITLE =#{b_title}, B_CONTENT= #{b_content}, B_FILE=
+      #{b_file} WHERE B_NUM= #{b_num}
+   </update>
+
+   <!-- NOTICE 삭제 (관리자) -->
+   <delete id="deleteBoard">
+      DELETE FROM BOARD WHERE B_NUM = #{b_num}
+   </delete>
+
+   <!-- NOTICE 목록 (관리자) -->
+   <select id="adminGetBoardList" resultType="boarddto">
+      SELECT ROW_NUMBER() OVER( order by B_DATE) as RNUM, B.* FROM (select *
+      from BOARD WHERE B_SORT='notice') B
+      <if test="searchType == '카테고리'">where B_CAT like CONCAT('%',
+         #{keyword}, '%')</if>
+      <if test="searchType == '제목'"> where B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == '내용'"> where B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+      order by RNUM DESC
+      <!-- <if test="keyword != null"> and B_TITLE like CONCAT('%', #{keyword}, 
+         '%')</if> -->
+   </select>
+
+   <!-- NOTICE 상세 (관리자) -->
+   <select id="adminGetBoard" resultType="boarddto">
+      SELECT * FROM BOARD WHERE
+      b_num= #{b_num}
+   </select>
+
+   <!-- NOTICE 목록 (사용자) -->
+   <!-- <select id="getBoardList" resultType="boarddto"> -->
+   <!-- SELECT * FROM board WHERE b_sort ='notice' AND b_status = '공개' -->
+   <!-- <if test="searchCondition == 'B_TITLE' "> AND b_title LIKE CONCAT('%', 
+      #{searchKeyword}, '%')</if> -->
+   <!-- <if test="searchCondition == 'B_CONTENT' "> AND b_title LIKE CONCAT('%', 
+      #{searchKeyword}, '%')</if> -->
+   <!-- ORDER BY B_DATE DESC -->
+   <!-- </select> -->
+
+   <!-- NOTICE 페이징을 위한 전체 데이터 갯수 가져오기 (사용자) -->
+   <select id="boardTotalCnt3"
+      parameterType="com.one.san.util.Pagination" resultType="integer">
+      SELECT count(*) FROM board WHERE b_sort ='notice' AND b_status = '공개'
+      <if test="searchType == '카테고리'">and B_CAT like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == '제목'">and B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == '내용'">and B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+   </select>
+   <!-- NOTICE 페이징 처리 후 데이터를 가져오는 로직 (사용자) -->
+   <select id="selectList3"
+      parameterType="com.one.san.util.Pagination" resultType="boarddto">
+      SELECT ROW_NUMBER() OVER( order by B_DATE) as RNUM, B.* FROM (select *
+      from BOARD WHERE B_SORT='notice') B
+      <if test="searchType == '카테고리'">where B_CAT like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == '제목'">where B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == '내용'">where B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+      order by RNUM DESC LIMIT #{sizePerPage} OFFSET #{startList}
+   </select>
+
+   <!-- NOTICE 상세 (사용자) -->
+   <select id="getBoard" resultType="boarddto"> SELECT * FROM BOARD WHERE
+      b_num= #{b_num} and b_sort='notice'
+   </select>
+
+   <!-- NOTICE 페이징을 위한 전체 데이터 갯수 가져오기 (관리자) -->
+   <select id="boardTotalCnt2"
+      parameterType="com.one.san.util.Pagination" resultType="integer">
+      SELECT count(*) FROM BOARD WHERE b_sort='notice'
+      <if test="searchType == 'B_CAT'"> and B_CAT like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == 'B_TITLE'"> and B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == 'B_CONTENT'"> and B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+   </select>
+
+   <!-- NOTICE 페이징 처리 후 데이터를 가져오는 로직 (관리자) -->
+   <select id="selectList2"
+      parameterType="com.one.san.util.Pagination" resultType="boarddto">
+      SELECT ROW_NUMBER() OVER( order by B.B_DATE) as RNUM, B.* FROM (select
+      * from BOARD WHERE B_SORT='notice') B
+      <if test="searchType != null">
+         <if test="searchType == 'B_CAT'">where B_CAT like CONCAT('%',
+            #{keyword}, '%')</if>
+         <if test="searchType == 'B_TITLE'"> where B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+         <if test="searchType == 'B_CONTENT'"> where B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+      </if>
+      order by RNUM DESC
+      LIMIT #{sizePerPage} OFFSET #{startList}
+   </select>
+
+
+   <!-- REVIEW 목록 (관리자) -->
+   <select id="adminGetReview" resultType="boarddto"> SELECT * FROM board
+      WHERE b_sort = 'review' ORDER BY b_num DESC
+   </select>
+   <!-- REVIEW 페이징을 위한 전체 데이터 갯수 가져오기 (관리자) -->
+   <select id="boardTotalCnt4"
+      parameterType="com.one.san.util.Pagination" resultType="integer">
+      SELECT count(*) FROM BOARD WHERE b_sort='review'
+      <if test="searchType == 'B_CONTENT'"> and B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == 'B_TITLE'"> and B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+   </select>
+   <!-- REVIEW 페이징 처리 후 데이터를 가져오는 로직 (관리자) -->
+   <select id="selectList4"
+      parameterType="com.one.san.util.Pagination" resultType="boarddto">
+      SELECT ROW_NUMBER() OVER( order by B.B_DATE) as RNUM, B.* FROM (select
+      * from BOARD WHERE B_SORT='review') B
+      <if test="searchType != null">
+         <if test="searchType == 'B_CONTENT'"> where B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+         <if test="searchType == 'B_TITLE'"> where B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      </if>
+      order by RNUM DESC
+      LIMIT #{sizePerPage} OFFSET #{startList}
+   </select>
+
+
+   <!-- REVIEW 상세 (관리자) -->
+   <select id="adminGetReviewDetail" resultType="boarddto"> SELECT * FROM
+      BOARD WHERE b_num= #{b_num} and b_sort='review'
+   </select>
+
+
+   <!-- REVIEW 비공개 (관리자) -->
+   <update id="adminUpdateReview">
+      UPDATE BOARD SET
+      <if test="b_status eq '비공개'">B_STATUS = '공개'</if>
+      <if test="b_status eq '공개'">B_STATUS = '비공개'</if>
+      WHERE B_NUM= #{b_num}
+   </update>
+
+   <!-- REVIEW 목록 (사용자) -->
+   <select id="getReview" resultType="boarddto"> SELECT * FROM board WHERE
+      b_sort = 'review' and b_status='공개' ORDER BY b_num DESC
+   </select>
+   <!-- REVIEW 페이징을 위한 전체 데이터 갯수 가져오기 (사용자) -->
+   <select id="boardTotalCnt5"
+      parameterType="com.one.san.util.Pagination" resultType="integer">
+      SELECT count(*) FROM BOARD WHERE b_sort='review' and b_status='공개'
+      <if test="searchType == 'B_CONTENT'"> and B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+      <if test="searchType == 'B_TITLE'"> and B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+   </select>
+   <!-- REVIEW 페이징 처리 후 데이터를 가져오는 로직 (사용자) -->
+   <select id="selectList5"
+      parameterType="com.one.san.util.Pagination" resultType="boarddto">
+      SELECT ROW_NUMBER() OVER( order by B.B_DATE) as RNUM, B.* FROM (select
+      * from BOARD WHERE B_SORT='review' and b_status='공개') B
+      <if test="searchType != null">
+         <if test="searchType == 'B_CONTENT'"> where B_CONTENT like CONCAT('%', #{keyword}, '%')</if>
+         <if test="searchType == 'B_TITLE'"> where B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      </if>
+      order by RNUM DESC
+      LIMIT #{sizePerPage} OFFSET #{startList}
+   </select>
+
+
+   <!-- REVIEW 상세 (사용자) -->
+   <select id="getReviewDetail" resultType="boarddto"> SELECT * FROM BOARD
+      WHERE b_num= #{b_num} and b_sort='review'
+   </select>
+
+   <!-- REVIEW 등록 (사용자) -->
+   <insert id="insertReview"> INSERT INTO BOARD(B_SORT, B_CAT, B_REV, B_TITLE,
+      B_NICK, B_CONTENT, B_FILE, B_DATE) VALUES('review','리뷰', #{b_rev},
+      #{b_title}, #{b_nick}, #{b_content}, #{b_file}, now())
+   </insert>
+
+   <!-- REVIEW 수정 (사용자) -->
+   <!-- <update id="updateReview"> UPDATE BOARD SET B_REV =#{b_rev}, B_CONTENT= -->
+   <!-- #{b_content}, B_FILE= #{b_file} WHERE B_NUM= #{b_num} </update> -->
+
+   <!-- REVIEW 삭제(비공개) (사용자) -->
+   <update id="deleteReview">
+      UPDATE BOARD SET B_STATUS ='비공개' WHERE B_NUM=
+      #{b_num}
+   </update>
+
+
+   <!-- REVIEW 목록 (사용자 작성한 리뷰목록) -->
+   <select id="getMyReview" resultType="boarddto"> SELECT * FROM board WHERE
+      b_sort = 'review' and b_status= '공개' and b_nick = #{b_nick} ORDER BY
+      b_num DESC
+   </select>
+
+
+
+
+   <!-- NOTICE, REVIEW 조회수 카운트 -->
+   <update id="getCount"> UPDATE BOARD SET B_CNT =#{b_cnt}+1 WHERE B_NUM=
+      #{b_num}
+   </update>
+
+   <!-- FAQ 목록 (사용자) -->
+   <select id="getFaqList" resultType="boarddto">
+      SELECT * FROM board WHERE 1=1 and b_sort='faq'
+      <if test="searchCondition == 'B_TITLE' "> AND b_title LIKE CONCAT('%', #{searchKeyword}, '%')</if>
+      <if test="searchCondition == 'B_CONTENT' "> AND b_title LIKE CONCAT('%', #{searchKeyword}, '%')</if>
+      ORDER BY B_NUM DESC
+   </select>
+
+   <!-- 키워드에 따른 faq 불러오기 -->
+   <select id="selectkind" resultType="boarddto">
+      SELECT * FROM board WHERE
+      b_sort='FAQ' and b_cat=#{B_CAT} ORDER BY B_NUM
+   </select>
+
+   <!-- FAQ 페이징을 위한 전체 데이터 갯수 가져오기 (사용자) -->
+   <select id="faqTotalCnt"
+      parameterType="com.one.san.util.Pagination" resultType="integer">
+      SELECT count(*) FROM BOARD WHERE b_sort='FAQ'
+      <if test="searchType != null">
+         and B_CAT like CONCAT('%', #{searchType}, '%')
+         <if test="keyword != null"> and B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      </if>
+   </select>
+
+   <!-- FAQ 페이징 처리 후 데이터를 가져오는 로직 (사용자) -->
+   <select id="selectFaqList"
+      parameterType="com.one.san.util.Pagination" resultType="boarddto">
+      SELECT ROW_NUMBER() OVER(order by B.B_DATE) as RNUM, B.* FROM (select
+      * from BOARD WHERE B_SORT='FAQ') B
+      <if test="searchType != null">
+         where B.B_CAT like CONCAT('%', #{searchType}, '%')
+         <if test="keyword != null"> and B.B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      </if>
+      ORDER BY RNUM DESC
+      LIMIT #{sizePerPage} OFFSET #{startList}
+   </select>
+
+   <!-- FAQ 목록 (관리자) -->
+   <select id="adminFaqList" resultType="boarddto">
+      SELECT ROW_NUMBER() OVER(order by B.B_DATE) as RNUM, B.* FROM (select
+      * from BOARD WHERE B_SORT='FAQ') B
+      <!-- <if test="searchCondition == 'B_TITLE' "> AND b.b_title LIKE CONCAT('%', 
+         #{searchKeyword}, '%')</if> -->
+      <!-- <if test="searchCondition == 'B_CONTENT' "> AND b.b_content LIKE CONCAT('%', 
+         #{searchKeyword}, '%')</if> -->
+      <if test="searchType != null">
+         where B_CAT like CONCAT('%', #{searchType}, '%')
+         <if test="keyword != null"> and B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      </if>
+      ORDER BY RNUM DESC
+   </select>
+
+   <!-- FAQ 상세 가져오기(관리자) -->
+   <select id="adminFaqDetail" resultType="boarddto">
+      SELECT * FROM BOARD WHERE
+      b_num=#{b_num} and b_sort='faq'
+   </select>
+
+   <!-- FAQ 추가 (관리자) -->
+   <insert id="insertFaq">
+      INSERT INTO BOARD(B_SORT, B_CAT, B_TITLE, B_NICK,
+      B_CONTENT, B_FILE, B_DATE) VALUES('faq',#{b_cat}, #{b_title},
+      #{b_nick}, #{b_content}, #{b_file}, now())
+   </insert>
+
+   <!-- FAQ 수정 (관리자) -->
+   <update id="updateFaq">
+      UPDATE BOARD SET B_CAT=#{b_cat}, B_TITLE=#{b_title},
+      B_CONTENT=#{b_content}, B_STATUS=#{b_status} WHERE B_NUM=#{b_num}
+   </update>
+
+   <!-- FAQ 삭제 (관리자) -->
+   <delete id="deleteFaq">
+      DELETE FROM BOARD WHERE B_NUM = #{b_num}
+   </delete>
+
+   <!-- FAQ 페이징을 위한 전체 데이터 갯수 가져오기 (관리자) -->
+   <select id="boardTotalCnt"
+      parameterType="com.one.san.util.Pagination" resultType="integer">
+      SELECT count(*) FROM BOARD WHERE b_sort='faq'
+      <if test="searchType != null">
+         and B_CAT like CONCAT('%', #{searchType}, '%')
+         <if test="keyword != null"> and B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      </if>
+   </select>
+
+   <!-- FAQ 페이징 처리 후 데이터를 가져오는 로직 (관리자) -->
+   <select id="selectList"
+      parameterType="com.one.san.util.Pagination" resultType="boarddto">
+      SELECT ROW_NUMBER() OVER(order by B.B_DATE) as RNUM, B.* FROM (select
+      * from BOARD WHERE B_SORT='FAQ') B
+      <if test="searchType != null">
+         where B_CAT like CONCAT('%', #{searchType}, '%')
+         <if test="keyword != null"> and B_TITLE like CONCAT('%', #{keyword}, '%')</if>
+      </if>
+      ORDER BY RNUM DESC
+      LIMIT #{sizePerPage} OFFSET #{startList}
+   </select>
+
+</mapper>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserDAO">
+
+	<!-- type은 sql-map-config에 설정한 typeAliases 사용했다 -->
+	<resultMap type="userdto" id="users">
+		<!-- id 태그로 설정할 수 있는것은 테이블에 프라이머리키로 지정된 컬럼만 가능하다. property : 클래스 멤버필드의 
+			이름 / column : db컬럼명 -->
+		<id property="u_id" column="U_ID"/>
+		<result property="u_pw" column="U_PW"/>
+		<result property="u_nick" column="U_NICK"/>
+		<result property="u_name" column="U_NAME"/>
+		<result property="u_phno" column="U_PHNO"/>
+		<result property="u_addr" column="U_ADDR"/>
+		<result property="u_addr2" column="U_ADDR2"/>
+		<result property="u_addr3" column="U_ADDR3"/>
+		<result property="u_birth" column="U_BIRTH"/>
+		<result property="u_email" column="U_EMAIL"/>
+		<result property="u_point" column="U_POINT"/>
+		<result property="u_status" column="U_STATUS"/>
+		<result property="u_social" column="U_SOCIAL"/>
+	</resultMap>
+
+
+	<!-- 포인트 업데이트 odDAO에서 넘어옵니다 / 회원이 주문 확인중 일 때 취소한 경우 사용 포인트가 있다면 다시 + -->
+	<update id="pointUp">
+		UPDATE USERS SET U_POINT = U_POINT + #{u_point} WHERE
+		U_ID = #{u_id}
+	</update>
+
+	<!-- 유저 포인트 가져오기 -->
+	<select id="getUserPoint" parameterType="string"
+		resultMap="users">
+		SELECT * FROM USERS WHERE U_ID = #{u_id}
+	</select>
+
+	<!-- 결제시 사용 포인트 차감 -->
+	<update id="updatePoint">
+		UPDATE USERS SET U_POINT = #{u_point} WHERE U_ID =
+		#{u_id}
+	</update>
+	
+	<!-- 로그인 쓸 때 -->
+	<select id="getUser" resultType="userdto"> SELECT * FROM USERS WHERE U_ID
+		= #{u_id} </select>
+		
+	<select id="selectPhno" parameterType="string" resultMap="users"> SELECT
+		* FROM USERS WHERE u_phno = #{u_phno} </select>
+		
+	<select id="selectEmail" parameterType="string"
+		resultMap="users"> SELECT * FROM USERS WHERE u_email = #{u_email} </select>
+		
+	<select id="selectPhno2" parameterType="string"
+		resultMap="users"> SELECT * FROM USERS WHERE u_phno = #{u_phno} and u_id !=
+		#{u_id} </select>
+		
+	<select id="selectEmail2" parameterType="string"
+		resultMap="users"> SELECT * FROM USERS WHERE u_email = #{u_email} and u_id !=
+		#{u_id} </select>
+		
+	<!-- resultType은 내가 만든 클래스(자료형), resultMap은 내가 만든 객체 -->
+	<select id="selectOne" parameterType="string" resultMap="users"> SELECT
+		* FROM USERS WHERE u_id = #{u_id} </select>
+		
+	<!-- test는 if의 조건을 넣는 곳 -->
+	<select id="selectList"
+		parameterType="com.one.san.util.Pagination" resultMap="users">
+		SELECT * FROM USERS WHERE 1=1
+		<if test="keyword != null">
+			<if test="searchType == 'u_id'"> and U_ID like CONCAT('%', #{keyword}, '%') </if>
+			<if test="searchType == 'u_name'"> and U_NAME like CONCAT('%', #{keyword}, '%') </if>
+			<if test="searchType == 'u_nick'"> and U_NICK like CONCAT('%', #{keyword}, '%') </if>
+			<if test="searchType == 'u_phno'"> and U_PHNO like CONCAT('%', #{keyword}, '%') </if>
+			<if test="searchType == 'u_addr'"> and U_ADDR like CONCAT('%', #{keyword}, '%') </if>
+			<if test="searchType == 'u_birth'"> and U_BIRTH like CONCAT('%', #{keyword}, '%') </if>
+			<if test="searchType == 'u_email'"> and U_EMAIL like CONCAT('%', #{keyword}, '%') </if>
+			<if test="searchType == 'u_status'"> and U_STATUS like CONCAT('%', #{keyword}, '%') </if>
+			LIMIT #{sizePerPage} OFFSET #{startList}
+		</if>
+	</select>
+	
+	<!-- SELECT * FROM users WHERE u_id LIKE CONCAT('%', ?1, '%') LIMIT ?2 OFFSET 
+		?3 -->
+	<!-- #{keyword} 검색어, #{sizePerPage} 표시할 항목수, #{startList} 건너 뛸 행수 -->
+	<select id="userTotalCnt"
+		parameterType="com.one.san.util.Pagination" resultType="integer">
+		SELECT count(*) FROM USERS WHERE 1=1
+		<if test="keyword != null">
+			<if test="searchType == 'u_id'"> and U_ID like CONCAT('%', #{keyword}, '%')</if>
+			<if test="searchType == 'u_name'"> and U_NAME like CONCAT('%', #{keyword}, '%')</if>
+			<if test="searchType == 'u_nick'"> and U_NICK like CONCAT('%', #{keyword}, '%')</if>
+			<if test="searchType == 'u_phno'"> and U_PHNO like CONCAT('%', #{keyword}, '%')</if>
+			<if test="searchType == 'u_addr'"> and U_ADDR like CONCAT('%', #{keyword}, '%')</if>
+			<if test="searchType == 'u_birth'"> and U_BIRTH like CONCAT('%', #{keyword}, '%')</if>
+			<if test="searchType == 'u_email'"> and U_EMAIL like CONCAT('%', #{keyword}, '%')</if>
+			<if test="searchType == 'u_status'"> and U_STATUS like CONCAT('%', #{keyword}, '%')</if>
+		</if>
+	</select>
+	
+	<insert id="insertUser">
+		INSERT INTO USERS (u_no, u_id, u_pw, u_nick, u_name, u_phno, u_addr,
+		u_birth, u_email, u_point, u_status, u_social) VALUES (#{u_no},
+		#{u_id}, #{u_pw}, #{u_nick}, #{u_name}, #{u_phno}, #{u_addr},
+		#{u_birth}, #{u_email}, DEFAULT, DEFAULT,
+		<if test="u_social != null">#{u_social}</if>
+		<if test="u_social == null">DEFAULT</if>
+		)
+	</insert>
+	
+	<update id="updateUser">
+      UPDATE USERS
+      <set>
+         <if test="u_pw != ''">U_PW = #{u_pw},</if>
+         <if test="u_nick != null">U_NICK = #{u_nick},</if>
+         <if test="u_phno != null">U_PHNO = #{u_phno},</if>
+         <if test="u_addr != null">U_ADDR = #{u_addr},</if>
+         <if test="u_addr2 != null">U_ADDR2 = #{u_addr2},</if>
+         <if test="u_addr3 != null">U_ADDR3 = #{u_addr3},</if>
+         <if test="u_email != null">U_EMAIL = #{u_email},</if>
+         <if test="u_point != null">U_POINT = #{u_point},</if>
+         <if test="u_status != null">U_STATUS = #{u_status},</if>
+      </set>
+      WHERE U_ID = #{u_id}
+   </update>
+   
+   <select id="selectPw" resultMap="users">
+      SELECT * FROM USERS WHERE u_id = #{id}
+   </select>
+   
+   <select id="findUserPw" resultType="string">
+      SELECT U_PW FROM USERS WHERE U_ID = #{id}
+   </select>
+	
+	<select id="cartSelectUser" parameterType="string"
+		resultMap="users"> SELECT * FROM USERS WHERE U_ID = #{u_id} </select>
+		
+	<update id="deleteUser"> 
+	UPDATE USERS SET U_STATUS = '탈퇴회원', U_DATE_OUT = NOW() WHERE U_ID = #{u_id} 
+	</update>
+	
+	<!-- 갱신버튼으로 3개월후에 번호랑 이메일 바꿔주는 로직 -->
+	<update id="updateUserStatus">UPDATE USERS
+	SET U_PHNO = '탈퇴한 번호', U_EMAIL = '탈퇴한 이메일'
+	WHERE u_date_out &lt;= DATE_SUB(NOW(), INTERVAL 3 MONTH);
+	</update>
+		
+	<select id="findUser" parameterType="string" resultType="string"> SELECT
+		U_ID FROM USERS WHERE U_NAME = #{u_name} AND U_EMAIL = #{u_email}
+	</select>
+	
+	<select id="selectSignUpStatistics" resultType="map">
+    SELECT
+	    (SELECT COUNT(*) FROM USERS WHERE DATE(U_DATE) = CURDATE()) AS recentUser,
+	    (SELECT COUNT(*) FROM USERS) AS totalUser;
+	</select>
+	
+	<select id="selectAgeStatistics" resultType="map">
+	SELECT
+	    SUM(CASE WHEN FLOOR((YEAR(CURDATE()) - FLOOR(u_birth / 10000)) / 10) = 1 THEN 1 ELSE 0 END) AS '10대',
+	    SUM(CASE WHEN FLOOR((YEAR(CURDATE()) - FLOOR(u_birth / 10000)) / 10) = 2 THEN 1 ELSE 0 END) AS '20대',
+	    SUM(CASE WHEN FLOOR((YEAR(CURDATE()) - FLOOR(u_birth / 10000)) / 10) = 3 THEN 1 ELSE 0 END) AS '30대',
+	    SUM(CASE WHEN FLOOR((YEAR(CURDATE()) - FLOOR(u_birth / 10000)) / 10) IN (4, 5) THEN 1 ELSE 0 END) AS '40-50대',
+	    SUM(CASE WHEN FLOOR((YEAR(CURDATE()) - FLOOR(u_birth / 10000)) / 10) IN (6, 7) THEN 1 ELSE 0 END) AS '60-70대',
+	    SUM(CASE WHEN FLOOR((YEAR(CURDATE()) - FLOOR(u_birth / 10000)) / 10) >= 8 THEN 1 ELSE 0 END) AS '80대 이상'
+	FROM
+	    users;
+	</select>
+
+</mapper>

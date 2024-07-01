@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OdDAO">
+
+	<!-- 아작스용 전체 픽업 주문 내역 검색 -->
+	<select id="odsearch" resultType="oddto">
+		SELECT * FROM OD WHERE O_BUY = "픽업"
+		<if test="searchCondition == '주문자' ">AND O_ID LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="searchCondition == '주문번호' ">AND O_NO LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="searchCondition == '주문상태' ">AND O_STATE LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="o_date != null">AND O_DATE LIKE CONCAT('%',#{o_date},'%')</if>
+		ORDER BY O_DATE DESC
+	</select>
+
+	<!-- 아작스용 오늘 주문 픽업 내역 검색 -->
+	<select id="toodsearch" resultType="oddto">
+		SELECT * FROM OD WHERE O_DATE LIKE CONCAT(CURDATE() ,'%') AND O_BUY =
+		"픽업"
+		<if test="searchCondition == '주문자' "> AND O_ID LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="searchCondition == '주문번호' "> AND O_NO LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="searchCondition == '주문상태' "> AND O_STATE LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		ORDER BY O_DATE DESC
+	</select>
+
+	<select id="getProductListPaging"
+		parameterType="com.one.san.util.Pagination" resultType="oddto">
+		SELECT * FROM
+		OD WHERE O_BUY = "픽업" ORDER BY O_DATE DESC LIMIT #{sizePerPage} OFFSET
+		#{startList}
+	</select>
+
+	<select id="countProductList" resultType="integer">
+		SELECT count(*) FROM OD
+		WHERE O_BUY = "픽업"
+	</select>
+
+	<select id="todayPaging"
+		parameterType="com.one.san.util.Pagination" resultType="oddto">
+		SELECT * FROM
+		OD WHERE O_DATE LIKE CONCAT(CURDATE() ,'%') AND O_BUY = "픽업" ORDER BY
+		O_DATE DESC LIMIT #{sizePerPage} OFFSET #{startList}
+	</select>
+
+	<select id="todaycount" resultType="integer">
+		SELECT count(*) FROM OD WHERE
+		O_DATE LIKE CONCAT(CURDATE() ,'%') AND O_BUY = "픽업"
+	</select>
+
+	<select id="deliveryList"
+		parameterType="com.one.san.util.Pagination" resultType="oddto">
+		SELECT * FROM
+		OD WHERE O_BUY = "배달" ORDER BY O_DATE DESC LIMIT #{sizePerPage} OFFSET
+		#{startList}
+	</select>
+
+	<select id="deliveryCount" resultType="integer">
+		SELECT count(*) FROM OD
+		WHERE O_BUY = "배달"
+	</select>
+
+	<select id="todayDelivery"
+		parameterType="com.one.san.util.Pagination" resultType="oddto">
+		SELECT * FROM
+		OD WHERE O_DATE LIKE CONCAT(CURDATE() ,'%') AND O_BUY = "배달" ORDER BY
+		O_DATE DESC LIMIT #{sizePerPage} OFFSET #{startList}
+	</select>
+
+	<select id="todayDeliveryCt" resultType="integer">
+		SELECT count(*) FROM OD
+		WHERE O_DATE LIKE CONCAT(CURDATE() ,'%') AND O_BUY = "배달"
+	</select>
+
+	<!-- 아작스용 전체 배달 주문 내역 검색 -->
+	<select id="deliodsearch" resultType="oddto">
+		SELECT * FROM OD WHERE O_BUY = "배달"
+		<if test="searchCondition == '주문자' ">AND O_ID LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="searchCondition == '주문번호' ">AND O_NO LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="searchCondition == '주문상태' ">AND O_STATE LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="o_date != null">AND O_DATE LIKE CONCAT('%',#{o_date},'%')</if>
+		ORDER BY O_DATE DESC
+	</select>
+
+	<!-- 아작스용 오늘 주문 배달 내역 검색 -->
+	<select id="deltosearch" resultType="oddto">
+		SELECT * FROM OD WHERE O_DATE LIKE CONCAT(CURDATE() ,'%') AND O_BUY =
+		"배달"
+		<if test="searchCondition == '주문자' "> AND O_ID LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="searchCondition == '주문번호' "> AND O_NO LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		<if test="searchCondition == '주문상태' "> AND O_STATE LIKE CONCAT('%',#{searchKeyword},'%')</if>
+		ORDER BY O_DATE DESC
+	</select>
+
+	<select id="myCount" resultType="integer">
+		SELECT count(*) FROM OD WHERE
+		O_ID = #{o_id}
+	</select>
+
+	<select id="selectOd" resultType="oddto">
+		SELECT * FROM OD WHERE o_no =
+		#{o_no}
+	</select>
+
+	<select id="receipt" resultType="oddto">
+		SELECT * FROM OD WHERE O_NO =
+		#{o_no}
+	</select>
+
+	<!-- 나의 주문내역 -->
+	<select id="odMyList" resultType="oddto">
+		SELECT * FROM OD WHERE O_ID = #{o_id}
+		ORDER BY O_DATE DESC
+	</select>
+
+	<!-- 나의 주문 전체내역 페이징 -->
+	<select id="odMyAllList"
+		parameterType="com.one.san.util.Pagination" resultType="oddto">
+		SELECT * FROM OD WHERE O_ID = #{vo.o_id} ORDER BY O_DATE DESC LIMIT
+		#{pg.sizePerPage} OFFSET #{pg.startList}
+	</select>
+
+	<!-- 나의 주문내역(완료)에서 날짜 검색 -->
+	<select id="odAllListDate" resultType="oddto">
+		SELECT * FROM OD WHERE O_ID = #{o_id} AND O_DATE LIKE
+		CONCAT('%',#{o_date},'%')
+		ORDER BY O_DATE DESC
+	</select>
+
+	<!-- 결제 완료시 od테이블 값 넣기 -->
+	<insert id="putOder">
+		INSERT INTO OD(O_NO, O_ID, O_NAME, O_NUM, O_TOTAL,
+		O_TOPRICE, O_DATE, O_WAY, O_USEPOINT, O_SAVEPOINT, O_BUY, O_ADDRESS,
+		O_PHONE, O_DELIVERY, O_OPTION, O_SIZE, O_EACHPRICE) VALUE(#{o_no},
+		#{o_id},
+		#{o_name}, #{o_num},
+		#{o_total}, #{o_toprice}, #{o_date},
+		#{o_way}, #{o_usepoint},
+		#{o_savepoint}, #{o_buy}, #{o_address},
+		#{o_phone}, #{o_delivery}, #{o_option},
+		#{o_size}, #{o_eachprice})
+	</insert>
+
+	<update id="revokeOd">
+		UPDATE OD SET O_STATE = "취소" WHERE O_NO = #{o_no}
+	</update>
+
+	<update id="updateOd">
+		UPDATE OD
+		<if test="o_state == '주문접수' "> SET O_STATE = "주문진행중"</if>
+		<if test="o_state == '제조완료' "> SET O_STATE = "제조완료"</if>
+		<if test="o_state == '픽업완료' "> SET O_STATE = "픽업완료"</if>
+		<if test="o_state == '완료' "> SET O_STATE = "완료"</if>
+		WHERE O_NO = #{o_no}
+	</update>
+
+	<!-- 회원의 주문상태가 완료일때 관리자가 취소 시 적립된 포인트를 - 시킴 -->
+	<update id="revokeOdState">
+		UPDATE USERS SET U_POINT = U_POINT - #{u_point} WHERE
+		U_ID = #{u_id}
+	</update>
+
+
+	<!-- 회원이 포인트사용이 있을 때 관리자가 주문 취소 -->
+	<update id="plusPoint">
+		UPDATE USERS SET U_POINT = U_POINT + #{u_point} WHERE
+		U_ID = #{u_id}
+	</update>
+
+	<!-- 리뷰 작성 상태 변경 -->
+	<update id="reviewUpdate">
+		UPDATE OD SET O_REVIEW = 1 WHERE O_NO = #{o_no}
+	</update>
+	
+	   <!-- ======================================== -->
+   <!--                     통계                   -->
+   <!-- ======================================== -->
+   <!-- 일매출 가져오기 -->
+   <select id="dailyStatistics" resultType="oddto">
+      select o_day, count(*), sum(o_toprice) from OD 
+      where o_state='완료' and o_day= BETWEEN DATE_ADD(NOW(), INTERVAL -1 DAY ) AND NOW()
+      group by o_day
+   </select>
+   
+   <!-- 주간매출 가져오기 -->
+   <select id="weeklyStatistics" resultType="oddto">
+      select coalesce (o_day,'TOTAL') as o_day, count(*) as o_cnt, sum(o_toprice) as o_sum from OD
+      where o_state='완료' and o_day between adddate(now(), interval -1 week) and now()
+      group by o_day with rollup ;
+   </select>
+   
+   <!-- 월간매출 가져오기 (현재사용안함)-->
+   <select id="monthlyStatistics" resultType="oddto">
+      select o_day, count(*)as o_cnt, sum(o_toprice) as o_sum  from OD 
+      where o_state='완료' and o_day BETWEEN DATE_ADD(NOW(), INTERVAL -1 month ) AND NOW()
+      group by o_day desc o_day
+   </select>
+   
+   <!-- 당월 총매출 가져오기 -->
+   <select id="monthTotalStatistics" resultType="oddto">
+      select coalesce (o_day,'TOTAL') as o_day, count(*) as o_cnt, sum(o_toprice) as o_sum from OD 
+      where o_state='완료' and o_day BETWEEN DATE_ADD(NOW(), INTERVAL -1 month  ) AND NOW() 
+      group by o_day with rollup ;
+   </select>
+   
+   <!-- 특정 기간 데이터 통계 -->
+   <select id="selectTotalStatistics" resultType="oddto">
+   select coalesce (o_day,'TOTAL') as o_day,  count(*) as o_cnt, sum(O_TOPRICE) as o_sum from od
+   where o_state='완료' and o_day between #{o_bdate} and #{o_adate}
+   group by o_day with rollup ;
+   </select>
+   
+   <!-- 특정 월 데이터 통계 -->
+   <select id="selectMonStatistics" resultType="oddto">
+   SELECT month(o_day) as o_day, count(*) as o_cnt, sum(O_TOPRICE) as o_sum FROM od 
+   WHERE year(o_day) = #{o_yr} and month(o_day) = #{o_mon}
+   </select>
+   
+	<select id="selectMdSaleStatistics" resultType="map">
+	   SELECT 
+	       SUM(CASE WHEN DAY(O_DAY) = DAY(CURDATE()) THEN O_TOPRICE + O_DELIVERY ELSE 0 END) AS daily_sales,
+	       SUM(CASE WHEN MONTH(O_DAY) = MONTH(CURDATE()) THEN O_TOPRICE + O_DELIVERY ELSE 0 END) AS monthly_sales
+	   FROM 
+	       OD
+	   WHERE 
+	       (DAY(O_DAY) = DAY(CURDATE()) OR (MONTH(O_DAY) = MONTH(CURDATE()) AND YEAR(O_DAY) = YEAR(CURDATE())))
+	       AND O_STATE = '완료'
+	</select>
+	  
+	  <select id="selectMdTodayStatistics" resultType="map">
+	   SELECT
+	      COUNT(CASE WHEN O_STATE = "주문 확인중" AND DAY(O_DAY) = DAY(CURDATE()) THEN 1 ELSE NULL END) AS daily_orderCheck_count,
+	      COUNT(CASE WHEN O_STATE = "주문진행중" AND DAY(O_DAY) = DAY(CURDATE()) THEN 1 ELSE NULL END) AS daily_orderProgress_count,
+	      COUNT(CASE WHEN O_STATE = "제조완료" AND DAY(O_DAY) = DAY(CURDATE()) THEN 1 ELSE NULL END) AS daily_manufactureComplete_count,
+	      COUNT(CASE WHEN O_STATE = "완료" AND DAY(O_DAY) = DAY(CURDATE()) THEN 1 ELSE NULL END) AS daily_complete_count
+	  FROM
+	      OD
+	  WHERE
+	      DAY(O_DAY) = DAY(CURDATE()) OR (MONTH(O_DAY) = MONTH(CURDATE()) AND YEAR(O_DAY) = YEAR(CURDATE()))
+	  </select>
+	  
+	  
+	  <select id="selectGraphMonStatistics" resultType="map">
+	  SELECT
+	      DAY(all_dates.day) AS day,
+	      COALESCE(SUM(CASE WHEN O_STATE = '완료' THEN O_TOPRICE + O_DELIVERY ELSE 0 END), 0) AS daily_sales,
+	      COUNT(CASE WHEN O_STATE = "완료" AND DAY(O_DAY) = DAY(all_dates.day) THEN 1 ELSE NULL END) AS daily_complete_count
+	  FROM
+	      (SELECT CURDATE() - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY AS day
+	          FROM (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS a
+	          CROSS JOIN (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS b
+	          CROSS JOIN (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS c
+	      ) all_dates
+	  LEFT JOIN OD ON all_dates.day = DATE(OD.O_DAY)
+	  WHERE
+	      MONTH(all_dates.day) = MONTH(CURDATE()) AND YEAR(all_dates.day) = YEAR(CURDATE())
+	  GROUP BY
+	      all_dates.day;
+	</select>
+	
+	<select id="selectGraphWeekStatistics" resultType="map">
+	   SELECT
+	    DAY(all_dates.day) AS day,
+	    COALESCE(SUM(CASE WHEN O_STATE = '완료' THEN O_TOPRICE + O_DELIVERY ELSE 0 END), 0) AS daily_sales,
+	    COUNT(CASE WHEN O_STATE = '완료' THEN OD.O_ID ELSE NULL END) AS daily_complete_count
+	FROM
+	    (SELECT CURDATE() - INTERVAL seq DAY AS day
+	     FROM (SELECT 0 AS seq UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6) AS seqs
+	    ) all_dates
+	LEFT JOIN OD ON all_dates.day = DATE(OD.O_DAY)
+	WHERE
+	    all_dates.day >= CURDATE() - INTERVAL 6 DAY
+	GROUP BY
+	    all_dates.day
+	ORDER BY
+	    all_dates.day;
+	</select>
+</mapper>

@@ -1,0 +1,179 @@
+@charset "UTF-8";
+*{box-sizing:border-box;}
+
+body,h1,h2,h3,p,li{margin:0;padding:0;}
+
+a{color:#272727!important;}
+
+ul,li{list-style:none;padding:0;}
+
+.container{width:540px!important;height:700px!important;margin:20px auto;padding:20px;overflow-y:overlay;}
+
+#termsForm{margin-top:50px;}
+
+.terms-section:not(.terms-section:nth-of-type(4)){border-bottom:.5px solid #ccc;}
+
+.terms-section:not(.terms-section:nth-of-type(1)){margin:10px 0;}
+
+.txt,.tit,.pri_tit,.sub_tit{font-size:14px;color:#222;margin-bottom:15px;}
+
+.terms-text li,.privacy_cont p,.privacy_cont li{font-size:14px;color:#444;line-height:1.6;}
+
+.mb15,.mb40{margin-bottom:15px;}
+
+.mb40{margin-bottom:40px;font-size:14px;}
+
+.fontBold{font-weight:700; font-size: 12px;}
+
+.underLine{text-decoration:underline;}
+
+#termsBtn{display:block;margin:0 auto;width:100%;background-color:#272727;color:#f9f5f2;padding:14px 20px;border:none;border-radius:4px;cursor:pointer;transition:background .3s ease;}
+
+#termsBtn:not(:disabled):hover{background-color:#f9f5f2!important;color:#272727!important;}
+
+#termsBtn:disabled{background-color:#f8f8f8;color:#ccc;}
+
+.more{margin-left:5px;}
+
+td {font-size: 12px;}
+
+.pointFont {font-size: 14px;}
+
+/* 스크롤 디자인 */
+
+.terms-text{height:200px;overflow-y:overlay;margin-bottom:20px;padding:10px;border:1px solid #ccc;border-radius:4px;}
+
+/* .terms-text::-webkit-scrollbar,.container::-webkit-scrollbar{width:.5vw;} */
+.terms-text::-webkit-scrollbar,.container::-webkit-scrollbar{width:1vw;}
+
+.terms-text::-webkit-scrollbar-thumb,.container::-webkit-scrollbar-thumb{background-color:hsla(0,0%,42%,0.49);border-radius:100px;}
+
+.t1 {font-size: 14px;}
+p.mb15 {font-size: 14px;}
+/* 체크박스 디자인 */
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    color: #222;
+}
+
+input[type="checkbox"] + label::before,
+input[type="checkbox"] + label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+input[type="checkbox"] + label::before {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ccc;
+    border-radius: 50%; /* 둥근 체크박스 */
+    background-color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-color: #272727;
+    border-color: #272727;
+}
+
+input[type="checkbox"] + label::after {
+    content: '✔';
+    left: 5px; /* 중앙 정렬을 위해 수정 */
+    top: 12px; /* 중앙 정렬을 위해 수정 */
+    font-size: 18px;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+input[type="checkbox"]:checked + label::after {
+    opacity: 1;
+}
+
+/* 미디어 쿼리 추가 */
+
+/* 992px 이하 */
+@media screen and (max-width: 992px) {
+    .container {
+        /*width: 440px!important;*/
+        width: 100%;
+        padding: 16px!important; /* 여백 추가 */
+    }
+
+    .txt, .tit, .pri_tit, .sub_tit {
+        font-size: 14px!important; /* 글씨 크기 조정 */
+    }
+
+    .terms-text {
+        height: 180px!important; /* 텍스트 영역 높이 조정 */
+    }
+
+    #termsBtn {
+        padding: 12px 16px!important;
+        font-size: 14px!important;
+    }
+}
+
+/* 768px 이하 */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 85%!important; /* 화면 너비에 맞게 */
+/*         padding: 12px!important; */
+    }
+
+    .txt, .tit, .pri_tit, .sub_tit {
+        font-size: 14px!important; /* 글씨 크기 조정 */
+    }
+
+    .terms-text {
+        height: 160px!important; /* 텍스트 영역 높이 조정 */
+    }
+
+    #termsBtn {
+        padding: 10px 14px!important;
+        font-size: 14px!important;
+    }
+    
+    input[type="checkbox"] + label::after{ 
+       top: 10px;
+    }
+}
+
+/* 576px 이하 */
+@media screen and (max-width: 576px) {
+    .container {
+          max-width: 85%;
+        width: 100%!important; /* 화면 너비에 맞게 */
+/*         padding: 8px!important; */
+    }
+
+    .txt, .tit, .pri_tit, .sub_tit {
+        font-size: 14px!important; /* 글씨 크기 조정 */
+    }
+
+    .terms-text {
+        height: 140px!important; /* 텍스트 영역 높이 조정 */
+    }
+
+    #termsBtn {
+        padding: 8px 12px!important;
+        font-size: 14px!important;
+    }
+    
+    input[type="checkbox"] + label::after{ 
+       top: 9px;
+      }
+}

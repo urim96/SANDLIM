@@ -1,0 +1,334 @@
+@charset "UTF-8";
+.signup-container {
+    width: 540px!important;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 100px;
+}
+
+button:disabled {
+    background-color: #f9f5f2;
+    cursor: not-allowed;
+    color: #272727;
+}
+
+small {
+    display: block;
+}
+
+.signup {
+    text-align: center;
+    color: #272727;
+}
+
+.input::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.row {
+    display: flex;
+    margin-bottom: 0.75rem;
+}
+
+.btn, .btn-outline-secondary:focus {
+    box-shadow: none!important;
+}
+
+.send-group, .check-group, .addr-group {
+    display: flex;
+    align-items: center;
+}
+
+.send-group .input, .check-group .input, .addr-group .input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    box-sizing: border-box;
+}
+
+.send-group #sendbtn, .send-group #sendbtn2, .check-group #checkbtn, #checkbtn2, .addr-group #findpost {
+    padding: 10px 12px;
+    width: inherit;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    color: #f9f5f2;
+    background-color: #272727;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#warningVerif {
+    display: none;
+    color: red;
+}
+
+#warningEmailDiv{
+	display: flex;
+    align-items: center; /* vertically align items */
+    justify-content: space-between;
+}
+
+.check-group #checkbtn, .check-group #checkbtn2 {
+   color: #272727;
+   background-color: #f9f5f2;
+   border-top-left-radius: 0;
+}
+
+.form-group {
+    margin-bottom: 0.75rem!important;
+}
+
+.addr-group, .detail-addr .input {
+    margin-bottom: 0.625rem!important;
+}
+
+.send-group #sendbtn:hover, .send-group #sendbtn2:hover, .addr-group #findpost:hover {
+    background-color: #f9f5f2;
+    color: #272727;
+}
+
+.check-group #checkbtn:hover, .check-group #checkbtn2:hover {
+    background-color: #272727;
+    color: #f9f5f2;
+}
+
+input[type="text"], input[type="password"], input[type="button"] {
+    width: 100%;
+    padding: 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #272727;
+    color: #f9f5f2;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px!important;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f9f5f2;
+    color: #272727;
+}
+
+#warningId,#warningPw1,#warningPw2,#warningBirth,#warningNick,#warningPhno,#warningEmail,#warningAddr,#warningSameId,#warningSameEmail,#warningSamePhno,#warningCheckPhno,#warningNoCheckPhno,#warningName,#needPhno, #checkEmailOk, #warningCheckEmail, #warningNoCheckEmail {
+    display: none;
+    color: #f00;
+}
+
+#checkPhnoOk, #checkEmailOk {
+    display: none;
+    color: #2900ee;
+}
+
+input[readOnly] {
+    outline: none;
+}
+
+/* 미디어 쿼리 추가 */
+
+/* 1140px 이하 */
+@media screen and (max-width: 1140px) {
+    .signup-container {
+/*         width: 100% !important; */
+/*         max-width: 480px; */
+        padding: 20px;
+    }
+
+    .signup {
+        font-size: 24px;
+    }
+
+    .input::placeholder {
+        font-size: 13px;
+    }
+
+    .send-group #sendbtn, .send-group #sendbtn2, .check-group #checkbtn, .check-group #checkbtn2, .addr-group #findpost {
+        font-size: 13px;
+    }
+
+    button {
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+}
+
+/* 992px 이하 */
+@media screen and (max-width: 992px) {
+    .signup-container {
+/*         width: 100% !important; */
+/*         max-width: 400px; */
+        padding: 15px;
+    }
+
+    .signup {
+        font-size: 22px;
+    }
+
+    .input::placeholder {
+        font-size: 13px;
+    }
+
+    .send-group #sendbtn, .send-group #sendbtn2, .check-group #checkbtn, .check-group #checkbtn2, .addr-group #findpost {
+        font-size: 13px;
+    }
+
+    button {
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+}
+
+/* 768px 이하 */
+@media screen and (max-width: 768px) {
+    .signup-container {
+        width: 100% !important;
+/*         max-width: 300px; */
+        padding: 10px;
+    }
+
+    .signup {
+        font-size: 20px;
+    }
+
+    .input::placeholder {
+        font-size: 12px;
+    }
+
+    .send-group #sendbtn, .send-group #sendbtn2, .check-group #checkbtn, .check-group #checkbtn2, .addr-group #findpost {
+        font-size: 12px;
+    }
+
+    button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+/* 576px 이하 */
+@media screen and (max-width: 576px) {
+    .signup-container {
+        width: 100% !important;
+        padding: inherit!important;
+    }
+
+    .signup {
+        font-size: 18px;
+    }
+
+    .input::placeholder {
+        font-size: 17px!important;
+        font-weight: 400;
+    }
+
+/*     .send-group #sendbtn, .check-group #checkbtn, .addr-group #findpost { */
+/*         font-size: 11px; */
+/*         padding: 13px 12px; */
+/*     } */
+
+   .send-group #sendbtn, .send-group #sendbtn2, .check-group #checkbtn, .check-group #checkbtn2, .addr-group #findpost{
+         font-size: 14px;
+           /*padding: 11px 9px;*/
+           padding: 10px 16px;
+        }
+        
+    button {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col {
+        width: 100%;
+    }
+    
+    #u_pw {margin-bottom: 16px;}
+}
+
+/* 400px 이하 및 375px 이상 */
+@media screen and (max-width: 400px) and (min-width: 375px) {
+    .signup-container {
+        width: 100% !important;
+        padding: 5px;
+    }
+
+    .signup {
+        font-size: 16px;
+    }
+
+    .input::placeholder {
+        font-size: 17px!important;
+        font-weight: 400;
+    }
+
+    .send-group #sendbtn, .check-group #checkbtn, .send-group #sendbtn2, .check-group #checkbtn2, .addr-group #findpost {
+        font-size: 10px;
+        padding: 13px 12px;
+    }
+
+    button {
+        padding: 13px 12px;
+        font-size: 12px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col {
+        width: 100%;
+    }
+}
+
+/* 375px 이하 */
+@media screen and (max-width: 375px) {
+    .signup-container {
+        width: 100% !important;
+        padding: 5px;
+        padding: inherit!important;
+/*       margin: auto!important; */
+        margin-bottom: 60px;
+    }
+
+    .signup {
+        font-size: 14px;
+    }
+
+    .input::placeholder {
+        font-size: 9px;
+    }
+
+    .send-group #sendbtn, .check-group #checkbtn,.send-group #sendbtn2, .check-group #checkbtn2, .addr-group #findpost {
+        font-size: 9px;
+        padding: 13px 12px;
+    }
+
+    button {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col {
+        width: 100%;
+    }
+}

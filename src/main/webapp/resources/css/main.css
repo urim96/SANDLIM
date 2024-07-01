@@ -1,0 +1,309 @@
+@charset "UTF-8";
+
+#vov {
+        width: 1320px;
+        margin: 0 300px;
+        margin-top: 90px;
+}
+
+.adminlink {
+        color: lightgray !important;
+        text-decoration: none !important;
+        font-size: x-small !important;
+ /*       display: flex; */
+        justify-content: flex-end;
+}
+
+.adminlink:hover {
+        text-decoration: none !important;
+}
+
+.main {
+        width: 360px;
+        text-align: center;
+        /*         margin: 10px; */
+        margin-bottom: 100px;
+}
+
+.container {
+        padding: 20px;
+}
+
+.mainBack1 {
+        height: 600px;
+        background: #f9f5f2 fixed;
+}
+
+.mainImg {
+        height: 500px;
+        width: 500px;
+        right: 400px;
+        position: absolute;
+        top: 1040px;
+}
+
+.mainCo {
+        font-size: 4em;
+        color: #272727;
+        position: absolute;
+        top: 1010px;
+        left: 400px;
+        animation: slide 3s ease-out;
+}
+
+.mainCo2 {
+        font-size: 1.4em;
+        color: #272727;
+        position: absolute;
+        top: 1250px;
+        left: 400px;
+        animation: slide 3s ease-out;
+}
+
+@keyframes slide {from { left:-100px;
+        opacity: 0;
+}
+
+to {
+        left: 400px;
+        opacity: 1;
+}
+
+}
+@keyframes backSlide {from { left:400px;
+        opacity: 1;
+}
+
+to {
+        left: -100px;
+        opacity: 0;
+}
+
+}
+
+/* 메인 반응형  */
+@media screen and (max-width: 1919px) {
+        #vov {
+                width: 1700px;
+                margin: 0px;
+                margin-top: 90px;
+        }
+        .mainImg {
+                right: 250px;
+        }
+        #vi1 {
+                display: flex;
+                justify-content: center;
+        }
+     .mainCo {
+                left: 300px;
+        }
+        .mainCo2 {
+                left: 300px;
+        }
+@keyframes slide {from { left:-100px;
+                opacity: 0;
+        }
+        to {
+                left: 300px;
+                opacity: 1;
+        }
+
+}
+@media screen and (max-width: 1550px) {
+        #vov {
+                width: 1500px;
+                padding: 0px;
+        }
+        .mainImg {
+                height: 450px;
+                width: 450px;
+                right: 250px;
+        }
+                .mainCo {
+                left: 250px;
+        }
+        .mainCo2 {
+                left: 250px;
+        }
+@keyframes slide {from { left:-100px;
+                opacity: 0;
+        }
+        to {
+                left: 250px;
+                opacity: 1;
+        }
+}
+
+@keyframes backSlide {from { left:250px;
+        opacity: 1;
+}
+
+to {
+        left: -100px;
+        opacity: 0;
+}
+
+}
+}
+
+@media screen and (max-width: 1490px) {
+        #vov {
+                width: 1400px;
+                padding: 0px;
+        }
+        .mainImg {
+                display: none;
+        }
+        .mainBack1 {
+                display: none;
+        }
+}
+
+@media screen and (max-width: 1400px) {
+        #vov {
+                width: 1300px;
+        }
+}
+
+@media screen and (max-width: 1300px) {
+        #vov {
+                width: 1200px;
+        }
+}
+
+@media screen and (max-width: 1200px) {
+        #vov {
+                width: 1120px;
+        }
+        #main_vi3 {
+                display: none;
+        }
+}
+
+@media screen and (max-width: 1140px) {
+        #vov {
+                width: 1100px;
+        }
+}
+
+@media
+screen
+and
+(max-width:
+1100px)
+{
+#vov {
+        width: 1000px;
+}
+
+}
+@media screen and (max-width: 1020px) {
+        #vov {
+                width: 960px;
+        }
+}
+
+@media screen and (max-width: 992px) {
+        #vov {
+                width: 922px;
+        }
+}
+
+@media screen and (max-width: 950px) {
+        #vov {
+                width: 880px;
+        }
+}
+
+@media screen and (max-width: 900px) {
+        #vov {
+                width: 850px;
+        }
+}
+
+@media screen and (max-width: 850px) {
+        #vov {
+                width: 800px;
+        }
+}
+        @media screen and (max-width: 800px) {
+                #vov {
+                        width: 750px;
+                }
+        }
+        @media screen and (max-width: 768px) {
+                #vov {
+                        width: 748px;
+                }
+                #main_vi1 {
+                        display: none;
+                }
+        }
+        @media screen and (max-width: 730px) {
+                #vov {
+                        width: 680px;
+                }
+        }
+        @media screen and (max-width: 670px) {
+                #vov {
+                        width: 620px;
+                }
+        }
+        @media screen and (max-width: 630px) {
+                #vov {
+                        width: 580px;
+                }
+        }
+        @media screen and (max-width: 597px) {
+                #vov {
+                        width: 557px;
+                }
+        }
+        @media screen and (max-width: 576px) {
+                #vov {
+                        width: 526px;
+                }
+        }
+        @media screen and (max-width: 550px) {
+                #vov {
+                        width: 500px;
+                }
+        }
+        @media screen and (max-width: 500px) {
+                #vov {
+                        width: 450px;
+                }
+        }
+        @media screen and (max-width: 470px) {
+                #vov {
+                        width: 420px;
+                }
+        }
+        @media screen and (max-width: 430px) {
+                #vov {
+                        width: 100%;
+         margin-top: 0px;
+                }
+
+.main {
+    width: 100%;
+     margin-bottom: 0px; 
+}
+#main5{
+    padding: 0px;
+}
+        }
+  
+        @media screen and (max-width: 400px) {
+                #vov {
+                        width: 100%;
+                }
+
+        
+#main5{
+    padding: 0px;
+}
+
+}
+/* 메인 반응형 끝  */

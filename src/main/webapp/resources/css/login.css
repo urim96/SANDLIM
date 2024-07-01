@@ -1,0 +1,200 @@
+/* 기본 스타일 */
+* {
+    font-family: "Noto Sans KR", sans-serif;
+/*     color: #272727; */
+}
+
+.form-control {
+    border: 1.5px solid #eee !important;
+    border-radius: 8px !important;
+    padding: 22px 12px !important;
+    color: #b8b8b8;
+    box-shadow: none !important;
+}
+
+.container {
+    width: 440px;
+    height: 700px;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+}
+
+.form-group, .join-btn {
+    margin: 16px 0;
+}
+
+.login-tit {
+    font-weight: 600;
+}
+
+#btn {
+    width: 100%!important;
+    font-weight: 700!important;
+    background-color: #272727!important;
+    color: #f9f5f2!important;
+    border: none!important;
+    box-shadow: none !important;
+    border-radius: 4px;
+    padding: 12px 12px;
+}
+
+#btn:hover {
+    background-color: #f9f5f2!important;
+    color: #272727!important;
+}
+
+.join-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.join-btn > a {
+    color: #c79c79 !important;
+    text-decoration: none;
+}
+
+.join-btn > .divider {
+    margin: 0 10px;
+    color: #c79c79;
+}
+
+.naver-btn, .kakao-btn {
+    position: relative;
+    display: block;
+    margin: 8px 0;
+    padding: 12px 12px;
+    height: 52px;
+    border: none!important;
+    text-align: center;
+    text-decoration: none!important;
+    font-weight: 700!important;
+    border-radius: 4px;
+    box-shadow: none!important;
+}
+
+.naver-btn {
+    color: #fff!important;
+    background-color: #03c75b;
+}
+
+.naver-btn::before {
+    position: absolute;
+    left: 12px; /* 아이콘 위치 조정 */
+    top: 50%; /* 세로 중앙 정렬 */
+    transform: translateY(-50%);
+    content: "";
+    height: 24px;
+    width: 24px;
+    background: url(/resources/img/icon_naver_02.svg) no-repeat;
+    background-size: 24px 24px;
+}
+
+.kakao-btn {
+    background-color: #fee500;
+    color: rgba(0,0,0,0.8);
+}
+
+.kakao-btn::before {
+    position: absolute;
+    left: 12px; /* 아이콘 위치 조정 */
+    top: 50%; /* 세로 중앙 정렬 */
+    transform: translateY(-50%);
+    content: "";
+    height: 24px;
+    width: 24px;
+    background: url(/resources/img/icon_kakao_02.svg) no-repeat;
+    background-size: 24px 24px;
+}
+
+.naver-btn:hover {
+    text-decoration: none!important;
+    color: #fff!important;
+}
+
+.kakao-btn:hover {
+    text-decoration: none!important;
+    color: rgba(0,0,0,0.8)!important;
+}
+
+/* 미디어 쿼리 추가 */
+
+@media screen and (max-width: 992px) {
+    /* 992px 이하 */
+    .container {
+        width: 360px;
+        height: auto; /* 높이를 자동으로 설정하여 내용을 모두 표시 */
+        padding: 16px; /* 여백 추가 */
+    }
+
+    .title {
+        font-size: 22px; /* 글씨 크기 조정 */
+    }
+
+    .form-group, .join-btn {
+        margin: 12px 0;
+    }
+
+    #btn {
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+
+    .naver-btn, .kakao-btn {
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* 768px 이하 */
+    .container {
+        padding: 12px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .form-group, .join-btn {
+        margin: 10px 0;
+    }
+
+    #btn {
+        padding: 8px 8px;
+        font-size: 13px;
+    }
+
+    .naver-btn, .kakao-btn {
+        padding: 8px 8px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* 576px 이하 */
+    .container {
+        padding: 8px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .form-group, .join-btn {
+        margin: 8px 0;
+    }
+
+    #btn {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+
+    .naver-btn, .kakao-btn {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+}

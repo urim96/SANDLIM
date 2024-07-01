@@ -1,0 +1,470 @@
+@charset "UTF-8";
+
+#sel1 {
+    width: 100px;
+    height: 40px;
+/*     margin-right: 10px; */
+    border: none;
+    padding: 0px 0px 0px 10px;
+    border-bottom: 1px solid lightgray;
+}
+#key1{
+   width: 200px;
+    height: 40px;
+/*     margin-right: 10px; */
+    border: none;
+    padding: 0px 0px 0px 10px;
+    border-bottom: 1px solid lightgray;
+   
+}
+#seabt.btn1.btn-success:focus {
+   outline: none;
+   border: none;
+    box-shadow: none;
+}
+
+.but1:focus{
+      border:none;
+   }
+.but1:active, .but1:focus-visible{
+   background-color: #272727;
+   color: #fff;
+}
+   
+#serNo_h3{
+   padding: 100px 100px 100px 120px;
+}
+
+#scrollBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; 
+    background: content-box;
+    border: none;
+    cursor: pointer;
+    z-index: 9997;
+}
+
+#scrollBtn:hover {
+   color:f9f5f2;
+}
+#scrollBtn:focus {
+      outline: none;
+}
+
+.cardall {
+        display: flex;
+        flex-wrap: wrap;
+      justify-content: flex-start;
+      
+}
+
+.card1 {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+}
+ .mdimg{
+ width:248px; 
+ height: 248px;
+ 
+ }
+ .dropdown{
+ display: none;
+ }
+ .card{
+ width:250px; 
+  }
+ .mdcard{
+ margin-bottom:3rem;
+ }
+ 
+.menubut{
+   margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content:  space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+ }
+
+.card-body {
+       flex: auto;
+       text-align: right;
+       border: 1px solid lightgray;
+}    
+
+#seabt.btn1.btn-success:hover {
+   color: #c79c79 !important;
+   background-color: #fff;
+   border: none;
+}
+
+#seabt.btn1.btn-success {
+   background-color: #fff;
+   border: none;
+   color: #272727;
+   font-size: x-small;
+   padding-bottom: 4px;
+   margin-right:4px;
+}
+#seabt.btn1.btn-success:focus {
+      outline: none;
+}
+
+#key1.form-control {
+   margin-right: 0 !important;
+}
+
+.form-inline {
+/*     padding: 0px 0px 30px 0px !important; */
+}
+.form-control:focus {
+    border: none;
+    box-shadow: none;
+}
+/* @media screen and (max-width: 576px) { */
+/* .slide-track { */
+/*     height: 350px; */
+/* } */
+.slider{
+  height: auto;
+  margin: auto;
+  position: sticky;
+  width: 100%;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  left:-10%;
+  background-color: white;
+}
+
+.slide-track{
+  display:flex;
+  width: calc(300px * 10);
+  animation: scroll 20s linear infinite !important;
+}
+
+ #cardall2 { 
+    display: flex;
+ } 
+ 
+ #cardall3 { 
+    display: flex;
+ } 
+
+.slide-track:hover{
+  animation-play-state:paused;
+}
+
+@keyframes scroll{
+  0% {
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(calc(-300px * 5));
+  }
+}
+
+.slide{
+  height: 350px;
+  width: 300px;
+  display: flex;
+  align-items:center;
+  padding: 15px;
+  perspective:100px;
+}
+.card-title2 {
+    margin-bottom: 0;
+}
+
+.train-card{
+  display: block;
+  width:100%; 
+  transition:transform 1s;
+  border-radius:0px;
+  overflow:hidden;
+}
+
+/* 슬라이더 그라데이션 그림자 */
+
+.slider::before,
+.slider::after {
+/*    background:linear-gradient(to right, #f9f5f2 0%,  */
+/*    rgba(255,255,255,0) 100%);  */
+  content:'';
+  height:100%;
+  position:absolute;
+  width:15%;
+  z-index:2;
+}
+
+.slider::before{
+  left:0;
+  top:0;
+}
+
+.slider::after{
+  right:0;
+  top:0;
+  transform: rotateZ(180deg); 
+}
+#best5 {
+font-size:large;
+margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 1140px) {
+   #best5div{
+   display:none;
+   }
+.menubut{
+    margin-top: 0px;
+    padding: 0px 55px;
+ }
+
+   .bod {
+      width: 950px;
+   }
+   .col-lg-3 {
+      display: flex;
+      max-width: 33.3%;
+   }
+.cardall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+   
+   .card1 {
+      display: flex;
+      flex-wrap: wrap;
+      
+   }
+   .card {
+      width: 250px;
+   }
+   .mdcard {
+      margin-bottom: 20px;
+   }
+   .but1 {
+      flex: 1 1 20%;
+   }
+      
+   .form-inline.sch {
+/*       justify-content: center; */
+      padding:  30px !important;
+   }
+   #seabt.btn1.btn-success {
+   margin-right:20px;
+}
+}
+
+@media screen and (max-width: 992px) {
+   
+   .bod {
+      width: 768px;
+   }
+   .but1 {
+      flex: 1 1 20%;
+   }
+   .card1 {
+      justify-content: flex-start;
+   }
+    
+   .menubut {
+   flex-wrap: wrap;
+    padding: 0px;
+   }
+   .card-body span {
+      font-size: smaller;
+      margin-right: 20px;
+   }
+   h5 {
+      font-size: large;
+   }
+   p.card-text {
+      font-size: medium;
+   }
+   #List.btn {
+      width: 60px !important;
+      height: 25px !important;
+      font-size: 13px !important;
+   }
+   .card-title {
+    margin-bottom: 5px;
+}
+.mdimg {
+    width: 223.73px;
+    height: 223.73px;
+}
+    .form-inline.sch {
+        padding: 30px 0px !important;
+}
+   #seabt.btn1.btn-success {
+   margin-right:0px;
+}
+.cardall {
+        justify-content: flex-start;
+    }
+}
+@media screen and (max-width: 768px) {
+   .bod {
+      width: 576px;
+   }
+   .col-lg-3 {
+      max-width: 50%;
+   }
+   .mdimg {
+    width: 248px;
+    height: 248px;
+}
+   .menubut {
+      display: none;
+   }
+   
+   #mdMenu {
+      display: block;
+   }
+#serNo_h3 {
+    padding: 50px 0px 50px 0px;
+}
+   .mddrop {
+    background-color: #f9f5f2 !important;
+   }
+   .mddrop:focus {
+   outline: none;
+    background-color: #272727 !important;
+}
+   .mddrop:hover {
+   outline: none;
+    background-color: #272727 !important;
+}
+   #mdMenu {
+      display: grid;
+      width: 90%;
+      margin-bottom: 36px;
+      margin-left: 25px;
+      height: 35px;
+/*     background-color: #f9f5f2 !important; */
+   }
+   .card-body {
+      padding: 20px;
+   }
+
+   .btn-primary {
+      color: #272727;
+      background-color: #f9f5f2;
+      font-family: bold;
+      border: none;
+      width: 100%;
+      height: 30px;
+   }
+   .btn-primary:not(:disabled):not(.disabled).active, .btn-primary.dropdown-toggle:hover,
+      .btn-primary.focus, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active,
+      .show>.btn-primary.dropdown-toggle, .btn-primary.focus, .btn-primary:focus,
+      .dropdown-item:focus {
+      background-color: #272727;
+      color: #f9f5f2;
+      font-family: bold;
+   }
+   #seabt.btn1.btn-success {
+    margin-right: 0px !important;
+}
+
+
+}
+
+@media screen and (max-width: 576px) {
+   .bod {
+      width: 400px;
+   }
+   .cardall {
+      margin: 10px;
+   }
+   .mdimg {
+      width: 130px;
+      height: 130px;
+   }
+   .card-body span {
+      margin-right: 0px;
+   }
+   .card {
+      width: 330px;
+      height: auto;
+      flex-direction: row;
+   }
+   .col-lg-3 {
+      max-width: 100%;
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+   }
+   .card-body {
+      padding: 15px 5px 5px 6px;
+   }
+   h5 {
+      font-size: large;
+      text-align: left;
+   }
+   p.card-text {
+      font-size: medium;
+      margin-bottom: 8px;
+      text-align: left;
+   }
+   #List.btn {
+      width: 80px !important;
+      font-size: medium !important;
+      height: 28px !important;
+      margin-top: 5px;
+      padding-bottom: 2px;
+      margin-right: 5px;
+   }
+   .card1 {
+      justify-content: center;
+      padding-left:10px;
+   }
+   #sel1.form-control {
+      width: auto;
+      margin-right: 4px !important;
+           margin-left: 40px;
+   }
+   #key1.form-control {
+      width: 200px;
+   }
+      .form-inline {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+   .bod {
+      width: 360px;
+   }
+    .form-inline {
+        padding: 15px 0px 15px 10px;
+        margin-left: 0px;
+    }
+    .col-lg-3 {
+        padding:0px;
+    }
+        #mdMenu {
+        margin-left: 20px;
+        }
+        .form-inline {
+        display: flex;
+        justify-content: center;
+    }
+      #sel1.form-control {
+       margin-left: 25px;
+      }
+          .cardall {
+        justify-content: center;
+    }
+}

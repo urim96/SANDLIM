@@ -1,0 +1,547 @@
+*{box-sizing: border-box;}
+    .in_hidden{outline:none; border:none;}
+    
+    .x_button{
+         font-size: 18px;
+       background-color : white;
+       outline:none; border:none;
+    }
+    .x_button:focus{
+       outline:none; border:none;
+    }
+    .x_button:hover{
+       font-size: 24px;
+       font-weight: bold; 
+    }
+    .in_disno{
+       outline:none; 
+          border:none;
+       display:none;
+    }
+    #order_nick, #o_phone, #rightdivCl input{
+       outline:none; 
+       border:none; 
+    }
+   #hrId{
+      margin-top: 3px;
+   }
+    .toMiuPlusBtn{
+    font-size: 18px;
+    background-color : white;
+    border:none;
+    outline:none;
+   }
+   .toMiuPlusBtn:focus{
+      outline:none;   
+   }
+   input[name=o_num]{
+      margin-left: 3px;
+   }
+   #receiptfont{
+      text-align: center;
+   }
+   
+   .rightdivCl .x_button{
+      float : right; 
+      margin-right: 10px;
+   }
+   .rightdivCl > .cartMenuPrice{
+      margin-left: 15px;
+   }
+   .floatimgdiv{
+      float: left;
+      clear: both;
+   }
+   .heightdivim{
+      height: 100px;
+      margin-left: 5px;
+   }
+   #rightdivCl{
+      margin-top: 5px;
+   }
+   #rightdivCl .cartMenuPrice{
+      float: right;
+      text-align: right;
+      margin-right: 10px;
+   }
+   #rightdivCl input{
+      outline: none; border:none;
+   }
+   .hrdiv{
+      margin-bottom : 20px;
+   }
+   .rightdivCl2{
+      margin-left : 105px;
+   }
+   .rightdivCl3{
+      margin-top: 5px;
+   }
+   #nickCenter{
+      text-align:center;
+   }
+   #savePoint{
+      border:none;
+      outline: none;
+   }
+   #asosP #allTotalPrice{
+      float: right;
+      text-align: right;
+      margin-right: 10px;
+      overflow:hidden;
+   }
+   
+   #clearpayPrice #payPrice{
+      float: right;
+      text-align: right;
+      margin-right: 10px;
+   }
+   
+   #clearUPoint #outpointbtn{
+      float: right;
+      text-align: right;
+      background-color: white;
+      color: black;
+      outline: none;
+   }
+   #outpointbtn:hover{
+      background-color: black !important;
+      color: white !important;
+   }
+   #reUsePoint{
+      background-color: white;
+      color: black;
+   }
+   
+   #asosP{
+      margin-left: 5px;
+   }
+   #clearPoint, #hrJone, #clearUPoint, #clearpayPrice, #pointcontent{
+      clear:both;
+   }
+   #clearPoint #savePoint{
+      float: right;
+      text-align: right;
+      margin-right: 10px;
+   }
+   #pickUp, #moveUp{
+      appearance: none;
+   }
+   #pickaWay input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    width: 65px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    line-height: 24px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+   }
+   
+   #check_module_div{
+      text-align: center;
+   }
+   #check_module{
+      text-align: center;
+      width: 100%;
+      height: 35px;
+      outline:none;
+      border:none;
+      background-color: black;
+      color: white;
+      border:1px solid rgba(0,0,0,0.2);
+      font-weight: bold;
+   }
+   #check_module:hover{
+      background-color: #f9f5f2;
+      color: black;
+      border:1px solid #f9f5f2;
+   }
+   #clearUPoint{
+      display: inline-block;
+   }
+#clearUPoint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#spanusepoint {
+  flex: 1;
+}
+#usePoint{
+   text-align: right;
+   margin-right: 3px;
+}
+.btnmargin{
+   margin-right: 10px;
+   width: 44px;
+   height: 30px;
+   font-size: 15px;
+}
+.o_addressborderbottom{
+   border-bottom: 1px solid rgba(0, 0, 0, .1);;
+}
+
+#o_address2 input[type=radio], #o_address4 input[type=radio], #o_address5 input[type=radio], #o_address3 input[type=radio] {
+    opacity: 0; 
+    position: absolute;
+}
+
+#o_address2 input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border: 3px solid black;
+    line-height: 24px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    background: black;
+}
+#o_address4 input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    line-height: 24px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    background: black;
+}
+
+#o_address3 input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    line-height: 24px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    background: black;
+}
+
+#o_addressLabel2, #o_addressLabel3, #o_addressLabel, #o_addressLabel4 {
+    width: 60px;
+    height: 30px;
+    background-color: white !important;
+    border: 1px solid rgba(0,0,0,0.2) !important;
+    cursor: pointer;
+    color: black;
+    text-align: center;
+}
+#changeAddrBtn, #changeAddrBtn2, #changeAddrBtn3, #changeAddrBtn4{
+      width: 60px;
+       border: 1px solid rgba(0,0,0,0.2) !important
+   }
+#o_address5 input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    line-height: 24px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    background: black;
+}
+#o_addressLabel, #o_addressLabel3, #o_addressLabel2, #o_addressLabel4{
+   float: right;
+   margin-right: 10px;
+}
+
+#o_address4, #o_address5, #o_address3{
+   height: 60px;
+   margin-left : 5px;
+   margin-right : 5px;
+   margin-top: 7px;
+}
+#o_address2{
+   height: 60px;
+   margin-left : 5px;
+   margin-right : 5px;
+   margin-top: 12px;
+}
+.changeAddrBtn{
+   width: 50px;
+   display: none;
+   float: right;
+   margin-right: 10px;
+   border: 1px solid #f9f5f2 !important;
+   background-color : white;
+   color : black;
+   outline: none;
+   border: none;
+}
+#o_addressLabel:hover{
+   background-color : black !important;
+   color : white;
+}
+#o_addressLabel2:hover{
+   background-color : black !important;
+   color : white;
+}
+#o_addressLabel3:hover{
+   background-color : black !important;
+   color : white;
+}
+#o_addressLabel4:hover{
+   background-color : black !important;
+   color : white;
+}
+#changeAddrBtn:hover{
+   background-color : black !important;
+   color : white;
+}
+#changeAddrBtn2:hover{
+   background-color : black !important;
+   color : white;
+}
+#changeAddrBtn3:hover{
+   background-color : black !important;
+   color : white;
+}
+#changeAddrBtn4:hover{
+   background-color : black !important;
+   color : white;
+}
+#reUsePoint:hover{
+   background-color : black !important;
+   color : white;
+}
+#takePhoneNum, #pickaWay{
+   display: inline-block;
+}
+#pickaWay, #address_plus{
+float: right;
+margin-right: 15px;
+}
+#takePhoneNum{
+   margin-left: 5px;
+}
+#picUpLabel:hover{
+   background-color : black !important;
+   color : white !important;
+}
+#moveUpLabel:hover{
+   background-color : black !important;
+   color : white !important;
+}
+#plusAddressdiv{
+   text-align: right;
+   margin-top: 8px;
+   margin-left: 5px;
+}
+#payPrice2Di, #takePhoneNum, hr, #hiddenInput, #hrJone, #pluspriceDi, #totalPayPriceDi, #plusAddressdiv{
+   clear:both;
+   margin-left: 5px;
+}
+#payPrice_2, #plusPrice, #totalPayPrice {
+   float: right;
+   text-align: right;
+   margin-right: 10px;
+}
+#address_plus{
+   height: 33px;
+   border: none;
+   outline: none;
+   border:1px solid rgba(0,0,0,0.2);
+   background-color: white;
+   color: black;
+   float:right;
+}
+#addressOk{
+   border: none;
+   outline: none;
+   border:1px solid rgba(0,0,0,0.2);
+   background-color: white;
+   color: black;
+}
+#address_plus:hover, #addressOk:hover{
+   background-color: black;
+   color: white;
+}
+#addressOk23{
+   display:none;
+}
+#addressOk23:hover{
+   background-color : black !important;
+   color : white !important;
+}
+#addressOk23{
+   width: 50px;
+   height: 30px;
+   border:none;
+   outline:none;
+   border:1px solid rgba(0,0,0,0.2);
+   background-color: white !important;
+   color: black !important;
+   text-align: center;
+}
+#maindivCR{
+margin:0 auto;
+ width:576px; 
+ margin-bottom:80px; 
+ margin-top:60px;
+ border:1px solid #c9c9c9;
+ padding: 10px;
+}
+#savePoint{
+width: 150px;
+}
+#goMList{
+   background-color: white;
+   color: black;
+   border:none;
+   outline:none;
+   font-size: 20px;
+}
+#backIcon{
+   width: 30px; height: 30px;
+}
+#plusAddressPost2{
+   width: 358px;
+}
+#poContent{
+   font-size:11px;
+   float: right;
+}
+#pointcontent{
+   margin-right: 10px;
+}
+#allMenuDelete{
+   text-align: right;   
+}
+#CtAllDelBtn{
+   border:none;
+   outline:none;
+   background-color: white;
+   color: black;   
+   font-size: 15px;
+   margin-right: 5px;
+}
+
+
+@media screen and (max-width: 768px) {
+      #maindivCR{
+      width: 560px;
+   }
+   #check_module{
+      text-align:center;
+      width: 100%;
+   }
+   #savepoint{
+      margin-right: 10px !important;
+   }
+   #plusAddressPost2{
+         width: 315px !important;
+   }
+}
+
+@media screen and (max-width: 576px) {
+   #maindivCR{
+      width: 399px;
+   }
+   #check_module{
+      text-align:center;
+      width: 100%;
+   }
+   #savepoint{
+      margin-right: 10px !important;
+   }
+   #plusAddressPost2{
+         width: 300px !important;
+   }
+    .o_addressborderbottom span{
+        font-size: 11px !important;
+   }
+   #address_plus{
+      height: 30px;
+      font-size: 13px !important;
+   }
+   #addressOk23{
+      width: 46px !important;
+      height: 28px !important;
+      font-size: 14px !important;
+   }
+   #maindivCR input, #maindivCR button{
+      font-size: 14px;
+   }
+   #asosP input, #asosP span, #asosP button{
+      font-size: 14px;
+   }
+   #poContent{
+      font-size: 11px !important;
+   }
+   #pickaWay input[type=radio]+label{
+      font-size: 14px;
+      width: 57px;
+      height: 29px;
+   }
+   #o_addressLabel, #o_addressLabel2, #o_addressLabel3, #o_addressLabel4 {
+      font-size: 14px;
+      width: 48px;
+      height: 25px;
+      padding-top: 2px;
+   }
+   #CtAllDelBtn{
+      font-size: 13px !important;
+   }
+}
+
+
+@media screen and (max-width: 400px) {
+   #maindivCR{
+      width: 373px;
+   }
+   #check_module{
+      text-align:center;
+      width: 100%;
+   }
+   #savepoint{
+      margin-right: 10px !important;
+   }
+   #plusAddressPost2{
+         width: 300px !important;
+   }
+   .o_addressborderbottom span{
+        font-size: 10.5px !important;
+   }
+   #address_plus{
+      height: 30px;
+      font-size: 12px !important;
+   }
+   #addressOk23{
+      width: 46px !important;
+      height: 28px !important;
+      font-size: 14px !important;
+   }
+   #maindivCR input, #maindivCR button{
+      font-size: 13px;
+   }
+   #asosP input, #asosP span, #asosP button{
+      font-size: 13px;
+   }
+   #poContent{
+      font-size: 11px !important;
+   }
+   #pickaWay input[type=radio]+label{
+      font-size: 13px;
+      width: 55px;
+      height: 28px;
+   }
+   #o_addressLabel, #o_addressLabel2, #o_addressLabel3, #o_addressLabel4 {
+      font-size: 13px;
+      width: 46px;
+      height: 24px;
+      padding-top: 1px;
+   }
+    #CtAllDelBtn{
+      font-size: 12px !important;
+   }
+}
