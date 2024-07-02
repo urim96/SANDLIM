@@ -77,9 +77,9 @@ https://github.com/urim96/SANDLIM/assets/157820470/6487c12a-2ff0-4f7f-bc4f-64f59
 - https://developers.portone.io/docs/ko/pg/payment-gateway/danal?v=v1 참고
 <br>
 
-https://github.com/urim96/SANDLIM/assets/157820470/2a9e0dc9-fd2d-4eae-8d82-dadbdd532a21
+https://github.com/urim96/SANDLIM/assets/157820470/9b2f5122-9601-47f4-8358-15cba87cda3b
 
-https://github.com/urim96/SANDLIM/assets/157820470/8ee33a0b-1af9-4f00-96a1-0417c08557c7
+https://github.com/urim96/SANDLIM/assets/157820470/fc946925-ff12-499a-837b-ec15845db838
 
 <br><br><br><br>
 ### :page_with_curl: 나의 결제 내역 조회, 결제 취소
