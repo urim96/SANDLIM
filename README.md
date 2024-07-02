@@ -45,11 +45,12 @@
 ## :movie_camera: 프로젝트 결과
 <br>
 
+
 ### :coffee: 메인 화면
 
-![메인1](https://github.com/urim96/SANDLIM/assets/157820470/79e3ee3a-d824-4d0f-b10f-760dd3db2bf9)
+![메인1](https://github.com/urim96/SANDLIM/assets/157820470/d1e69109-0965-4561-b918-6a4829687cd5)
 
-![메인2](https://github.com/urim96/SANDLIM/assets/157820470/0fc50e85-fb95-4417-a46f-7355b0311300)
+![메인2](https://github.com/urim96/SANDLIM/assets/157820470/364567b9-f72f-4e96-b0f0-d546100be37f)
 <br><br><br><br>
 ### :cake: 상품 페이지
 
@@ -59,9 +60,9 @@
 
 ![스크롤](https://github.com/urim96/SANDLIM/assets/157820470/4965ea93-615f-4413-8d39-18c6a3401cc0)
 
-![검색기능](https://github.com/urim96/SANDLIM/assets/157820470/d20edef0-5a54-4ccf-8044-c84b3e92019a)
+![검색기능](https://github.com/urim96/SANDLIM/assets/157820470/db131c16-8b3d-41e6-8e5c-6adbdc1a59d4)
 
-![키워드](https://github.com/urim96/SANDLIM/assets/157820470/49a8b249-c089-42e4-a546-c0e1b760700e)
+![키워드](https://github.com/urim96/SANDLIM/assets/157820470/703e727a-238d-473f-ae97-091ad1dbdc77)
 <br><br><br><br>
 ## :star: 상품 페이지 반응형
 
@@ -96,7 +97,7 @@ https://github.com/urim96/SANDLIM/assets/157820470/434efbf8-510a-4f02-b89f-6658d
 - 관리자는 모든 주문 상태에서 취소가 가능합니다.
 <br>
 
-![상태변경](https://github.com/urim96/SANDLIM/assets/157820470/451bd0a7-b23c-4bbf-ab3d-ae8f205f0776)
+![상태변경](https://github.com/urim96/SANDLIM/assets/157820470/65927fd9-281c-4f5c-865c-db261ded8c23)
 
 <br><br><br><br>
 ### :cookie: 관리자 : 상품 수정 / 삭제 
