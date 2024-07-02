@@ -68,7 +68,7 @@
 
 - 다양한 기기, 화면에서도 렌더링 되도록 미디어 쿼리를 사용하여 반응형 웹 설계/구현을 하였습니다.
 
-https://github.com/urim96/SANDLIM/assets/157820470/6487c12a-2ff0-4f7f-bc4f-64f59b6d770d
+https://github.com/urim96/SANDLIM/assets/157820470/7b7ed93e-3cc6-4224-9f41-c0624609944b
 
 <br><br><br><br>
 ### :money_with_wings: 결제
@@ -87,7 +87,7 @@ https://github.com/urim96/SANDLIM/assets/157820470/fc946925-ff12-499a-837b-ec158
 - 결제 내역은 진행중인 결제 내역과 전체기간 결제 내역 조회가 가능하며 주문확인중인 결제 건에 한하여 주문자가 직접 결제를 취소할 수 있도록 하였습니다.
 <br>
 
-https://github.com/urim96/SANDLIM/assets/157820470/434efbf8-510a-4f02-b89f-6658df3bb3b6
+https://github.com/urim96/SANDLIM/assets/157820470/f4b486e9-077e-410f-8d26-5328c95d0042
 
 <br><br><br><br>
 ### :bell: 관리자 : 주문 상태 변경 
