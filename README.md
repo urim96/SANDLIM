@@ -40,16 +40,16 @@
 <br><br><br>
 
 ## :wrench: 사용 기술
-![사용기술](https://github.com/urim96/urim96final/assets/157820470/18ebbdbe-988a-4fe1-8aa7-29fce689025e)
+![사용기술](https://github.com/urim96/SANDLIM/assets/157820470/18ebbdbe-988a-4fe1-8aa7-29fce689025e)
 <br><br><br>
 ## :movie_camera: 프로젝트 결과
 <br>
 
 ### :coffee: 메인 화면
 
-![메인1](https://github.com/urim96/SANDLIMfinal/assets/157820470/79e3ee3a-d824-4d0f-b10f-760dd3db2bf9)
+![메인1](https://github.com/urim96/SANDLIM/assets/157820470/79e3ee3a-d824-4d0f-b10f-760dd3db2bf9)
 
-![메인2](https://github.com/urim96/SANDLIMfinal/assets/157820470/0fc50e85-fb95-4417-a46f-7355b0311300)
+![메인2](https://github.com/urim96/SANDLIM/assets/157820470/0fc50e85-fb95-4417-a46f-7355b0311300)
 <br><br><br><br>
 ### :cake: 상품 페이지
 
@@ -57,17 +57,17 @@
 - 검색 기능과 카테고리별 메뉴는 Ajax를 사용하여 페이지 리로드 없이 비동기 호출되도록 구현하였습니다. 
 <br>
 
-![스크롤](https://github.com/urim96/SANDLIMfinal/assets/157820470/c45df98b-c888-4749-91d6-d74a566e0841)
+![스크롤](https://github.com/urim96/SANDLIM/assets/157820470/c45df98b-c888-4749-91d6-d74a566e0841)
 
-![검색기능](https://github.com/urim96/SANDLIMfinal/assets/157820470/d20edef0-5a54-4ccf-8044-c84b3e92019a)
+![검색기능](https://github.com/urim96/SANDLIM/assets/157820470/d20edef0-5a54-4ccf-8044-c84b3e92019a)
 
-![키워드](https://github.com/urim96/SANDLIMfinal/assets/157820470/49a8b249-c089-42e4-a546-c0e1b760700e)
+![키워드](https://github.com/urim96/SANDLIM/assets/157820470/49a8b249-c089-42e4-a546-c0e1b760700e)
 <br><br><br><br>
 ## :star: 상품 페이지 반응형
 
 - 다양한 기기, 화면에서도 렌더링 되도록 미디어 쿼리를 사용하여 반응형 웹 설계/구현을 하였습니다.
 
-https://github.com/urim96/SANDLIMfinal/assets/157820470/6487c12a-2ff0-4f7f-bc4f-64f59b6d770d
+https://github.com/urim96/SANDLIM/assets/157820470/6487c12a-2ff0-4f7f-bc4f-64f59b6d770d
 
 <br><br><br><br>
 ### :money_with_wings: 결제
@@ -76,9 +76,9 @@ https://github.com/urim96/SANDLIMfinal/assets/157820470/6487c12a-2ff0-4f7f-bc4f-
 - https://developers.portone.io/docs/ko/pg/payment-gateway/danal?v=v1 참고
 <br>
 
-https://github.com/urim96/SANDLIMfinal/assets/157820470/2a9e0dc9-fd2d-4eae-8d82-dadbdd532a21
+https://github.com/urim96/SANDLIM/assets/157820470/2a9e0dc9-fd2d-4eae-8d82-dadbdd532a21
 
-https://github.com/urim96/SANDLIMfinal/assets/157820470/8ee33a0b-1af9-4f00-96a1-0417c08557c7
+https://github.com/urim96/SANDLIM/assets/157820470/8ee33a0b-1af9-4f00-96a1-0417c08557c7
 
 <br><br><br><br>
 ### :page_with_curl: 나의 결제 내역 조회, 결제 취소
@@ -86,7 +86,7 @@ https://github.com/urim96/SANDLIMfinal/assets/157820470/8ee33a0b-1af9-4f00-96a1-
 - 결제 내역은 진행중인 결제 내역과 전체기간 결제 내역 조회가 가능하며 주문확인중인 결제 건에 한하여 주문자가 직접 결제를 취소할 수 있도록 하였습니다.
 <br>
 
-https://github.com/urim96/SANDLIMfinal/assets/157820470/434efbf8-510a-4f02-b89f-6658df3bb3b6
+https://github.com/urim96/SANDLIM/assets/157820470/434efbf8-510a-4f02-b89f-6658df3bb3b6
 
 <br><br><br><br>
 ### :bell: 관리자 : 주문 상태 변경 
@@ -96,7 +96,7 @@ https://github.com/urim96/SANDLIMfinal/assets/157820470/434efbf8-510a-4f02-b89f-
 - 관리자는 모든 주문 상태에서 취소가 가능합니다.
 <br>
 
-![상태변경](https://github.com/urim96/SANDLIMfinal/assets/157820470/451bd0a7-b23c-4bbf-ab3d-ae8f205f0776)
+![상태변경](https://github.com/urim96/SANDLIM/assets/157820470/451bd0a7-b23c-4bbf-ab3d-ae8f205f0776)
 
 <br><br><br><br>
 ### :cookie: 관리자 : 상품 수정 / 삭제 
@@ -107,7 +107,7 @@ https://github.com/urim96/SANDLIMfinal/assets/157820470/434efbf8-510a-4f02-b89f-
 - 상품 삭제는 DELETE가 아닌 UPDATE 처리로 판매 종료 처리하여 사용자 페이지에서는 보이지 않고 관리자 페이지에서만 확인 가능합니다.
 <br>
 
-https://github.com/urim96/SANDLIMfinal/assets/157820470/0ae72a85-6b9e-44a0-a51c-be95f079bbdb
+https://github.com/urim96/SANDLIM/assets/157820470/0ae72a85-6b9e-44a0-a51c-be95f079bbdb
 
 <br><br><br><br>
 ### :birthday: 관리자 : 상품 추가
@@ -115,7 +115,7 @@ https://github.com/urim96/SANDLIMfinal/assets/157820470/0ae72a85-6b9e-44a0-a51c-
 - 새로운 상품 추가 시 이미지 업로드가 가능합니다.
 <br>
 
-https://github.com/urim96/SANDLIMfinal/assets/157820470/43a08b25-9205-494c-890c-9108fda14d04
+https://github.com/urim96/SANDLIM/assets/157820470/43a08b25-9205-494c-890c-9108fda14d04
 
 
 <br><br><br><br>
