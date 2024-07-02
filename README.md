@@ -108,7 +108,7 @@ https://github.com/urim96/SANDLIM/assets/157820470/f4b486e9-077e-410f-8d26-5328c
 - 상품 삭제는 DELETE가 아닌 UPDATE 처리로 판매 종료 처리하여 사용자 페이지에서는 보이지 않고 관리자 페이지에서만 확인 가능합니다.
 <br>
 
-https://github.com/urim96/SANDLIM/assets/157820470/0ae72a85-6b9e-44a0-a51c-be95f079bbdb
+https://github.com/urim96/SANDLIM/assets/157820470/ed5b9212-2cd8-4cb4-8425-7194521b45c9
 
 <br><br><br><br>
 ### :birthday: 관리자 : 상품 추가
@@ -116,8 +116,7 @@ https://github.com/urim96/SANDLIM/assets/157820470/0ae72a85-6b9e-44a0-a51c-be95f
 - 새로운 상품 추가 시 이미지 업로드가 가능합니다.
 <br>
 
-https://github.com/urim96/SANDLIM/assets/157820470/43a08b25-9205-494c-890c-9108fda14d04
-
+https://github.com/urim96/SANDLIM/assets/157820470/f5b96965-e724-4f2c-a3b9-c12d227580ea
 
 <br><br><br><br>
 상품 이미지 출처 : (주)더쉐프 텐퍼센트커피 / 영상 출처: 카페 나크타
