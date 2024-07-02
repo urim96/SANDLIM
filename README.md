@@ -40,7 +40,7 @@
 <br><br><br>
 
 ## :wrench: 사용 기술
-![사용기술](https://github.com/urim96/SANDLIM/assets/157820470/18ebbdbe-988a-4fe1-8aa7-29fce689025e)
+![사용기술](https://github.com/urim96/SANDLIM/assets/157820470/d667140f-f0ae-4c5b-a297-eab5fded339d)
 <br><br><br>
 ## :movie_camera: 프로젝트 결과
 <br>
@@ -57,7 +57,7 @@
 - 검색 기능과 카테고리별 메뉴는 Ajax를 사용하여 페이지 리로드 없이 비동기 호출되도록 구현하였습니다. 
 <br>
 
-![스크롤](https://github.com/urim96/SANDLIM/assets/157820470/c45df98b-c888-4749-91d6-d74a566e0841)
+![스크롤](https://github.com/urim96/SANDLIM/assets/157820470/4965ea93-615f-4413-8d39-18c6a3401cc0)
 
 ![검색기능](https://github.com/urim96/SANDLIM/assets/157820470/d20edef0-5a54-4ccf-8044-c84b3e92019a)
 
